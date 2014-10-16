@@ -1,7 +1,8 @@
-package com.zzb.service;  
+package com.grayson.service;  
   
-import java.util.List;  
-import com.zzb.vo.BaseVO;  
+import java.util.List;
+
+import com.grayson.vo.BaseVO;
   
 public interface BaseService {  
      public BaseVO addVO(BaseVO vo);  

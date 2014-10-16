@@ -1,7 +1,8 @@
-package com.zzb.dao;  
+package com.grayson.dao;  
   
-import java.util.List;  
-import com.zzb.vo.BaseVO;  
+import java.util.List;
+
+import com.grayson.vo.BaseVO;
   
 public interface BaseDAO {  
      public BaseVO addVO(BaseVO vo);  

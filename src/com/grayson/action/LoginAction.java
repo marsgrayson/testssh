@@ -1,9 +1,9 @@
-package com.zzb.action;  
+package com.grayson.action;  
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.zzb.service.BaseService;  
-import com.opensymphony.xwork2.ActionSupport;  
-import com.zzb.vo.User;  
+import com.grayson.service.BaseService;
+import com.grayson.vo.User;
+import com.opensymphony.xwork2.ActionSupport;
   
 public class LoginAction extends ActionSupport {  
      /**

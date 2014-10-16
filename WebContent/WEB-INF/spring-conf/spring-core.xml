@@ -13,7 +13,7 @@
 	<bean class="org.apache.commons.dbcp.BasicDataSource"
 		destroy-method="close" id="dataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
-		<property name="url" value="jdbc:mysql://10.10.90.67:3306/test" />
+		<property name="url" value="jdbc:mysql://192.168.1.6:3306/test" />
 		<property name="username" value="test" />
 		<property name="password" value="test123" />
 		<property name="initialSize" value="10" />
@@ -56,7 +56,7 @@
 
 	<!-- 那些类的哪些方法参与事务 -->
 	<aop:config>
-		<aop:pointcut id="allServiceMethod" expression="execution (* com.zzb.service.*.*(..))" />
+		<aop:pointcut id="allServiceMethod" expression="execution (* com.grayson.service.*.*(..))" />
 		<aop:advisor pointcut-ref="allServiceMethod" advice-ref="txAdvice" />
 	</aop:config>
 </beans>

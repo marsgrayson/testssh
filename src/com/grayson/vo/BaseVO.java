@@ -1,4 +1,4 @@
-package com.zzb.vo;  
+package com.grayson.vo;  
   
 import java.io.Serializable;   
   

@@ -5,7 +5,7 @@
 <hibernate-configuration>  
     <session-factory>  
         <property name="connection.driver_class">com.mysql.jdbc.Driver</property>  
-        <property name="connection.url">jdbc:mysql://10.10.90.67:3306/test</property>  
+        <property name="connection.url">jdbc:mysql://192.168.1.6:3306/test</property>  
         <property name="connection.username">test</property>  
         <property name="connection.password">test123</property>  
         <property name="connection.pool_size">10</property>  
@@ -14,6 +14,6 @@
        	<property name="hibernate.hbm2ddl.auto">update</property>  
        	<!-- <property name="hibernate.connection.autocommit">true</property> --> 
         <property name="hibernate.current_session_context_class">thread</property>
-        <mapping resource="com/zzb/vo/User.hbm.xml"/>  
+        <mapping resource="com/grayson/vo/User.hbm.xml"/>  
     </session-factory>  
 </hibernate-configuration>

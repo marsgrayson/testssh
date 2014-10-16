@@ -1,12 +1,12 @@
-package com.zzb.dao;  
+package com.grayson.dao;  
   
-import java.util.List;  
+import java.util.List;
 
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;  
+import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.zzb.vo.BaseVO;  
+import com.grayson.vo.BaseVO;
   
 public class BaseDAOImpl implements BaseDAO {  
 	@Autowired

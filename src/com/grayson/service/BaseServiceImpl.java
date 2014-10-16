@@ -1,8 +1,9 @@
-package com.zzb.service;  
+package com.grayson.service;  
   
-import java.util.List;  
-import com.zzb.dao.BaseDAO;  
-import com.zzb.vo.BaseVO;  
+import java.util.List;
+
+import com.grayson.dao.BaseDAO;
+import com.grayson.vo.BaseVO;
   
 public class BaseServiceImpl implements BaseService {  
      BaseDAO baseDao;  

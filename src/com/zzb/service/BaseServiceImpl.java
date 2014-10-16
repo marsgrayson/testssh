@@ -15,7 +15,7 @@ public class BaseServiceImpl implements BaseService {
         return false;  
      }  
   
-     public BaseVO getVOById(BaseVO BaseVO) {  
+     public BaseVO queryVOById(BaseVO BaseVO) {  
         return (BaseVO)baseDao.getVOById(BaseVO);  
      }  
   

@@ -22,7 +22,7 @@ public class LoginAction extends ActionSupport {
          Integer id = new Integer(1);
          user.setId(id);  
   
-         user = (User) baseService.getVOById(user);  
+         user = (User) baseService.queryVOById(user);  
          System.out.println(">>>>>>>>>>>>>>>>>>"+user.getName());  
          String result = "success";  
         return result;  

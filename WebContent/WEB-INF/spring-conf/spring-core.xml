@@ -1,26 +1,66 @@
-<?xml version="1.0" encoding="UTF-8"?>   
-<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
-    xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"  
-    xsi:schemaLocation="  
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="  
           http://www.springframework.org/schema/beans  
           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd  
           http://www.springframework.org/schema/aop  
           http://www.springframework.org/schema/aop/spring-aop-2.0.xsd  
           http://www.springframework.org/schema/tx  
-          http://www.springframework.org/schema/tx/spring-tx-2.0.xsd">  
-     <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
-         <property name="configLocation">  
-              <value>classpath:Hibernate.cfg.xml</value>  
-         </property>  
-     </bean>  
-  	<!-- 
-  		 <bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">  
-         <property name="sessionFactory">  
-              <ref bean="sessionFactory"/>  
-         </property>  
-     </bean>  
-  
-     <tx:annotation-driven transaction-manager="transactionManager" /> 
-  	 -->
-     
+          http://www.springframework.org/schema/tx/spring-tx-2.0.xsd">
+
+	<bean class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close" id="dataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url" value="jdbc:mysql://10.10.90.67:3306/test" />
+		<property name="username" value="test" />
+		<property name="password" value="test123" />
+		<property name="initialSize" value="10" />
+		<property name="maxActive" value="300" />
+		<property name="maxIdle" value="50" />
+		<property name="minIdle" value="5" />
+		<property name="maxWait" value="10000" />
+		<property name="removeAbandoned" value="true" />
+		<property name="removeAbandonedTimeout" value="60" />
+		<property name="logAbandoned" value="true" />
+	</bean>
+
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="configLocation">
+			<value>classpath:Hibernate.cfg.xml</value>
+		</property>
+	</bean>
+
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+		<property name="dataSource">
+			<ref bean="dataSource" />
+		</property>
+	</bean>
+
+	<!-- 配置事务的传播特性 -->
+	<tx:advice id="txAdvice" transaction-manager="transactionManager">
+		<tx:attributes>
+			<tx:method name="save*" propagation="REQUIRED" />
+			<tx:method name="delete*" propagation="REQUIRED" />
+			<tx:method name="update*" propagation="REQUIRED" />
+			<tx:method name="get*" read-only="true" propagation="NOT_SUPPORTED" />
+			<tx:method name="*" read-only="true" />
+		</tx:attributes>
+	</tx:advice>
+
+	<!-- 那些类的哪些方法参与事务 -->
+	<aop:config>
+		<aop:pointcut id="allServiceMethod" expression="execution (* com.zzb.service.*.*(..))" />
+		<aop:advisor pointcut-ref="allServiceMethod" advice-ref="txAdvice" />
+	</aop:config>
 </beans>
+<!-- <property name="defaultAutoCommit"> <value>false</value> </property> 
+	<bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager"> 
+	<property name="sessionFactory"> <ref bean="sessionFactory"/> </property> 
+	</bean> <tx:annotation-driven transaction-manager="transactionManager" /> -->

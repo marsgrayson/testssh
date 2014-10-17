@@ -24,7 +24,6 @@ public class BaseDAOImpl implements BaseDAO {
         assert(vo.getId()!=null);  
         Session session=sessionFactory.openSession();
          BaseVO result = (BaseVO)session.load(vo.getClass(), vo.getId());  
-         
         return result;  
      }  
   

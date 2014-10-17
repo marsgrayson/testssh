@@ -1,18 +1,15 @@
 package com.grayson.action;  
 
 import com.grayson.vo.User;
- 
 
-//@RequestMapping("/login")
 public class LoginAction extends AbstractAction {  
 	
 	private static final long serialVersionUID = 1L;
 	private String username;  
     private String password;  
 
-   // @RequestMapping("/doLogin")
-   // @ActionMapping
-     public String login(){  
+ // @RequestMapping("/doLogin")
+     public String dologin(){  
          logger.debug(username);  
          logger.debug(password);  
          User user =new User();  
@@ -20,15 +17,15 @@ public class LoginAction extends AbstractAction {
          user.setId(id);  
          user = (User) serviceFactory.getUserService().queryVOById(user);
          logger.info("Hello {}","SLF4J");   
-         logger.debug(">>>>>>>>>>>>>>>>>>"+user.getId());  
-         logger.debug(">>>>>>>>>>>>>>>>>>"+user.getUserName());  
-         logger.debug(">>>>>>>>>>>>>>>>>>"+user.getPassWd());  
-         logger.debug(">>>>>>>>>>>>>>>>>>"+user.getCreateTime());  
-         logger.debug(">>>>>>>>>>>>>>>>>>"+user.getVisitIp());  
-         logger.debug(">>>>>>>>>>>>>>>>>>"+user.getLastVisitTime());  
-         logger.debug(">>>>>>>>>>>>>>>>>>"+user.getLevels());  
-         logger.debug(">>>>>>>>>>>>>>>>>>"+user.getRoleIds());  
-         String result = "success";  
+         logger.info(">>>>>>>>>>>>>>>>>>"+user.getId());  
+         logger.info(">>>>>>>>>>>>>>>>>>"+user.getUserName());  
+         logger.info(">>>>>>>>>>>>>>>>>>"+user.getPassWd());  
+         logger.info(">>>>>>>>>>>>>>>>>>"+user.getCreateTime());  
+         logger.info(">>>>>>>>>>>>>>>>>>"+user.getVisitIp());  
+         logger.info(">>>>>>>>>>>>>>>>>>"+user.getLastVisitTime());  
+         logger.info(">>>>>>>>>>>>>>>>>>"+user.getLevels());  
+         logger.info(">>>>>>>>>>>>>>>>>>"+user.getRoleIds());
+         String result = "failure";  
         return result;  
      }  
   

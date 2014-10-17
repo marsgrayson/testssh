@@ -5,10 +5,10 @@
 <html>  
 <head>  
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">  
-<title>login</title>  
+<title>Login</title>  
 </head>  
 <body>  
-<s:form action="login.action" namespace="">  
+<s:form action="dologin" namespace="/login">  
     <s:textfield key="username"/>  
     <s:password key="password" />  
     <s:submit/>  

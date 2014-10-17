@@ -9,7 +9,7 @@
 	<url>http://maven.apache.org</url>
 	<profiles>
 		<profile>
-			<id>lietou.com</id>
+			<id>grayson.com</id>
 			<repositories>
 				<repository>
 					<id>releases</id>
@@ -265,7 +265,45 @@
 			<artifactId>spring-aop</artifactId>
 			<version>4.1.0.RELEASE</version>
 		</dependency>
-
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-jdk14</artifactId>
+			<version>1.7.7</version>
+		</dependency>
+		<dependency>
+			<groupId>com.grayson</groupId>
+			<artifactId>logback-access</artifactId>
+			<version>1.1.2</version>
+		</dependency>
+		<dependency>
+			<groupId>com.grayson</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>1.1.2</version>
+		</dependency>
+		<dependency>
+			<groupId>com.grayson</groupId>
+			<artifactId>jcl-over-slf4j</artifactId>
+			<version>1.7.7</version>
+		</dependency>
+		<dependency>
+			<groupId>com.grayson</groupId>
+			<artifactId>slf4j-jcl</artifactId>
+			<version>1.7.7</version>
+		</dependency>
+		<dependency>
+			<groupId>com.grayson</groupId>
+			<artifactId>logback-core</artifactId>
+			<version>1.1.2</version>
+		</dependency>
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		<dependency>
 			<groupId>com.grayson</groupId>
 			<artifactId>spring-aspects</artifactId>
@@ -449,5 +487,6 @@
 			<artifactId>hibernate-ehcache</artifactId>
 			<version>4.3.6.Final</version>
 		</dependency>
+
 	</dependencies>
 </project>

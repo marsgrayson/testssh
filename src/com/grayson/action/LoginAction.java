@@ -13,14 +13,15 @@ public class LoginAction extends AbstractAction {
     private String password;  
 
    // @RequestMapping("/doLogin")
-    @ActionMapping
+   // @ActionMapping
      public String login(){  
          logger.debug(username);  
          logger.debug(password);  
          User user =new User();  
          Integer id = new Integer(1);
          user.setId(id);  
-         user = (User) serviceFactory.getUserService().queryVOById(user);  
+         user = (User) serviceFactory.getUserService().queryVOById(user);
+         logger.info("Hello {}","SLF4J");   
          logger.debug(">>>>>>>>>>>>>>>>>>"+user.getId());  
          logger.debug(">>>>>>>>>>>>>>>>>>"+user.getUserName());  
          logger.debug(">>>>>>>>>>>>>>>>>>"+user.getPassWd());  

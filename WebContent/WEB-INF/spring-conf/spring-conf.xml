@@ -6,7 +6,7 @@
      <bean id="loginAction" class="com.grayson.action.LoginAction" scope="prototype">  
          <property name="baseService" ref="baseService" />  
      </bean>  
-     <bean id="baseService" class="com.grayson.service.BaseServiceImpl" >  
+     <bean id="baseService" class="com.grayson.service.BaseServiceImpl">  
          <property name="baseDao" ref="baseDAO" />  
      </bean>  
      <bean id="baseDAO" class="com.grayson.dao.BaseDAOImpl" scope="prototype">  

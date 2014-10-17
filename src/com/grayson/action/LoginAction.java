@@ -23,7 +23,14 @@ public class LoginAction extends ActionSupport {
          user.setId(id);  
   
          user = (User) baseService.queryVOById(user);  
-         System.out.println(">>>>>>>>>>>>>>>>>>"+user.getName());  
+         System.out.println(">>>>>>>>>>>>>>>>>>"+user.getId());  
+         System.out.println(">>>>>>>>>>>>>>>>>>"+user.getUserName());  
+         System.out.println(">>>>>>>>>>>>>>>>>>"+user.getPassWd());  
+         System.out.println(">>>>>>>>>>>>>>>>>>"+user.getCreateTime());  
+         System.out.println(">>>>>>>>>>>>>>>>>>"+user.getVisitIp());  
+         System.out.println(">>>>>>>>>>>>>>>>>>"+user.getLastVisitTime());  
+         System.out.println(">>>>>>>>>>>>>>>>>>"+user.getLevels());  
+         System.out.println(">>>>>>>>>>>>>>>>>>"+user.getRoleIds());  
          String result = "success";  
         return result;  
      }  

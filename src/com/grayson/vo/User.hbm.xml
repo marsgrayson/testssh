@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>  
-<!DOCTYPE hibernate-mapping PUBLIC  
-        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"  
-        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">  
-<hibernate-mapping package="com.grayson.vo">  
-    <class name="User" table="hibernate2">  
-        <id name="id">  
-            <generator class="native"/>  
-        </id>  
-        <property name="name" column="name"/>  
-    </class>  
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.grayson.vo">
+	<class name="User" table="user">
+		<id name="id">
+			<generator class="native" />
+		</id>
+		<property name="userName" column="name" />
+		<property name="passWd" column="passwd" />
+		<property name="createTime" column="createtime" />
+		<property name="lastVisitTime" column="lastvisittime" />
+		<property name="visitIp" column="visitip" />
+		<property name="levels" column="levels" />
+		<property name="roleIds" column="role_ids" />
+	</class>
 </hibernate-mapping>

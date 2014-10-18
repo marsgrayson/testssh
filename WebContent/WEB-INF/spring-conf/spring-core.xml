@@ -13,7 +13,7 @@
 	<bean class="org.apache.commons.dbcp.BasicDataSource"
 		destroy-method="close" id="dataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
-		<property name="url" value="jdbc:mysql://10.10.90.67:3306/grayson" />
+		<property name="url" value="jdbc:mysql://192.168.1.5:3306/grayson" />
 		<property name="username" value="grayson" />
 		<property name="password" value="grayson" />
 		<property name="initialSize" value="10" />

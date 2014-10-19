@@ -48,7 +48,6 @@ public class LoginAction extends AbstractAction {
  				e.printStackTrace();
  			}
  			if (count == 0) {
- 				taskExecutor.shutdown();
  				break;
  			}
  		}

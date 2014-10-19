@@ -14,12 +14,4 @@ public abstract class AbstractAction extends ActionSupport {
 	private static final long serialVersionUID = 1109148210806933271L;
 	@Autowired
     protected ServiceFactory serviceFactory;
-
-	public ServiceFactory getServiceFactory() {
-		return serviceFactory;
-	}
-
-	public void setServiceFactory(ServiceFactory serviceFactory) {
-		this.serviceFactory = serviceFactory;
-	}  
 }

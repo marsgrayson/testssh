@@ -1,20 +1,22 @@
 package com.grayson.action;  
 
+import javax.jms.Destination;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
-
-import com.grayson.util.threadpool.other.PrintTask;
+import org.springframework.beans.factory.annotation.Qualifier;
 import com.grayson.vo.User;
 
 public class LoginAction extends AbstractAction {  
 	
 	
-	@Autowired
-	private  ThreadPoolTaskExecutor taskExecutor;
+
 	private static final long serialVersionUID = 1L;
 	private String username;  
     private String password;  
-
+    @Autowired  
+    @Qualifier("queueDestination")  
+    private Destination destination; 
+    
+    
  // @RequestMapping("/doLogin")
      public String dologin(){  
          logger.debug(username);  
@@ -33,24 +35,7 @@ public class LoginAction extends AbstractAction {
          logger.info(">>>>>>>>>>>>>>>>>>"+user.getLevels());  
          logger.info(">>>>>>>>>>>>>>>>>>"+user.getRoleIds());
          String result = "failure"; 
-        taskExecutor.execute(new PrintTask("Thread 1"));
- 		taskExecutor.execute(new PrintTask("Thread 2"));
- 		taskExecutor.execute(new PrintTask("Thread 3"));
- 		taskExecutor.execute(new PrintTask("Thread 4"));
- 		taskExecutor.execute(new PrintTask("Thread 5"));
- 		// 检查活动的线程，如果活动线程数为0则关闭线程池
- 		for (;;) {
- 			int count = taskExecutor.getActiveCount();
- 			System.out.println("Active Threads : " + count);
- 			try {
- 				Thread.sleep(1000);
- 			} catch (InterruptedException e) {
- 				e.printStackTrace();
- 			}
- 			if (count == 0) {
- 				break;
- 			}
- 		}
+         serviceFactory.getProducerService().sendMessage(destination, Thread.currentThread().getName());
         return result;  
      }  
   

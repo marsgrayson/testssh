@@ -13,7 +13,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 
+import com.grayson.service.factory.ServiceFactory;
 import com.grayson.util.threadpool.other.PrintTask;
+import com.grayson.vo.User;
 
    
 public class ConsumerMessageListener implements MessageListener { 
@@ -21,15 +23,17 @@ public class ConsumerMessageListener implements MessageListener {
 	Lock lock = new ReentrantLock();
 	@Autowired
 	private  ThreadPoolTaskExecutor taskExecutor;
+	@Autowired
+	private ServiceFactory serviceFactory;
     public void onMessage(Message message) {  
         //这里我们知道生产者发送的就是一个纯文本消息，所以这里可以直接进行强制转换  
         TextMessage textMsg = (TextMessage) message;  
         logger.info("接收到一个纯文本消息。");  
-        taskExecutor.execute(new PrintTask("Thread 1"));
- 		taskExecutor.execute(new PrintTask("Thread 2"));
- 		taskExecutor.execute(new PrintTask("Thread 3"));
- 		taskExecutor.execute(new PrintTask("Thread 4"));
- 		taskExecutor.execute(new PrintTask("Thread 5"));
+        taskExecutor.execute(new PrintTask("Thread 1",new User(),serviceFactory));
+ 		taskExecutor.execute(new PrintTask("Thread 2",new User(),serviceFactory));
+ 		taskExecutor.execute(new PrintTask("Thread 3",new User(),serviceFactory));
+ 		taskExecutor.execute(new PrintTask("Thread 4",new User(),serviceFactory));
+ 		taskExecutor.execute(new PrintTask("Thread 5",new User(),serviceFactory));
  		while(true) {
  			lock.lock();
  			int count = taskExecutor.getActiveCount();

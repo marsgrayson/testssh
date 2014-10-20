@@ -10,11 +10,11 @@ public class App1 {
 				"/WEB-INF/spring-conf/spring-thread.xml");
 		ThreadPoolTaskExecutor taskExecutor = (ThreadPoolTaskExecutor) ctx
 				.getBean("taskExecutor");
-		taskExecutor.execute(new PrintTask("Thread 1"));
-		taskExecutor.execute(new PrintTask("Thread 2"));
-		taskExecutor.execute(new PrintTask("Thread 3"));
-		taskExecutor.execute(new PrintTask("Thread 4"));
-		taskExecutor.execute(new PrintTask("Thread 5"));
+//		taskExecutor.execute(new PrintTask("Thread 1"));
+//		taskExecutor.execute(new PrintTask("Thread 2"));
+//		taskExecutor.execute(new PrintTask("Thread 3"));
+//		taskExecutor.execute(new PrintTask("Thread 4"));
+//		taskExecutor.execute(new PrintTask("Thread 5"));
 		// 检查活动的线程，如果活动线程数为0则关闭线程池
 		for (;;) {
 			int count = taskExecutor.getActiveCount();

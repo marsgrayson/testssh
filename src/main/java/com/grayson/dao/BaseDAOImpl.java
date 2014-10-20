@@ -2,8 +2,10 @@ package com.grayson.dao;
   
 import java.util.List;
 
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.grayson.vo.BaseVO;
@@ -13,7 +15,11 @@ public class BaseDAOImpl implements BaseDAO {
      private SessionFactory sessionFactory;  
   
      public BaseVO addVO(BaseVO vo) {  
-        return null;  
+    	 Session session=sessionFactory.openSession();
+    	 Transaction transaction=session.beginTransaction(); 
+    	 session.save("user", vo); 
+    	 transaction.commit();
+        return null;    
      }  
   
      public boolean deleteVOById(BaseVO vo) {  
@@ -49,5 +55,15 @@ public class BaseDAOImpl implements BaseDAO {
   
      public void setSessionFactory(SessionFactory sessionFactory) {  
         this.sessionFactory = sessionFactory;  
-     }  
+     }
+
+	@Override
+	public int queryMaxId(String tableName) {
+		  Session session=sessionFactory.openSession();
+		  session.clear();
+		  String sql = "select max(id)  from "+tableName;
+		  Query query = session.createQuery(sql);
+		  Object o=query.list().get(0);
+		return (int) o;
+	}  
 }  

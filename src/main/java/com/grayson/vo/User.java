@@ -1,9 +1,10 @@
 package com.grayson.vo;  
 
+import java.io.Serializable;
 import java.util.Date;
   
   
-public class User extends BaseVO {  
+public class User extends BaseVO implements Serializable {  
 	private static final long serialVersionUID = -8299834080355160570L;
 	private String userName;  
 	private String passWd;
@@ -55,4 +56,39 @@ public class User extends BaseVO {
 		this.roleIds = roleIds;
 	}
   
+	
+	
+	@Override
+	public String toString() {
+		return "User [userName=" + userName + ", passWd=" + passWd + "]";
+	}
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((passWd == null) ? 0 : passWd.hashCode());
+		result = prime * result + ((userName == null) ? 0 : userName.hashCode());
+		return result;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		User other = (User) obj;
+		if (userName == null) {
+			if (other.userName != null)
+				return false;
+		} else if (!passWd.equals(other.passWd))
+			return false;
+		if (userName == null) {
+			if (other.userName != null)
+				return false;
+		} else if (!userName.equals(other.userName))
+			return false;
+		return true;
+	}
 }  

@@ -34,7 +34,7 @@
        <!-- 指定连接数据库的驱动 -->   
        <property name="driverClass" value="com.mysql.jdbc.Driver"/>   
        <!-- 指定连接数据库的URL -->   
-       <property name="jdbcUrl" value="jdbc:mysql://172.22.241.1:3306/grayson"/>   
+       <property name="jdbcUrl" value="jdbc:mysql://10.10.90.70:3306/grayson"/>   
        <!-- 指定连接数据库的用户名 -->   
        <property name="user" value="grayson"/>   
        <!-- 指定连接数据库的密码 -->   

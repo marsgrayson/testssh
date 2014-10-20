@@ -5,7 +5,7 @@
 <hibernate-configuration>  
     <session-factory>  
         <property name="connection.driver_class">com.mysql.jdbc.Driver</property>  
-        <property name="connection.url">jdbc:mysql://172.22.241.1:3306/grayson</property>  
+        <property name="connection.url">jdbc:mysql://10.10.90.70:3306/grayson</property>  
         <property name="connection.username">grayson</property>  
         <property name="connection.password">grayson</property>  
         <property name="connection.pool_size">10</property>  

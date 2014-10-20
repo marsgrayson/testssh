@@ -36,7 +36,7 @@
 		class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory">
 		<property
 			name="hostName"
-			value="10.10.90.106" />
+			value="192.168.192.134" />
 		<property
 			name="port"
 			value="6379" />

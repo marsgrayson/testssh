@@ -1,7 +1,6 @@
 package com.grayson.util.redis;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
 
 import org.apache.xbean.spring.context.ClassPathXmlApplicationContext;
 import org.junit.Before;

@@ -70,7 +70,7 @@ public class UserServiceImpl extends AbstractService implements IUserService {
 
 	@Override
 	@Transactional 
-	public synchronized boolean  updateAndAddVO(User bvo) {
+	public  boolean  updateAndAddVO(User bvo) {
 		if(bvo==null)
 		return false;
 		User vo= bvo;
